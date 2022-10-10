@@ -69,21 +69,21 @@ public class GameBoard implements IGameModel
     {
         if(checkHorizontally())
             if(turnOfPlayerOne)
-                return 0;
-            else
                 return 1;
+            else
+                return 0;
 
         if(checkVertically())
             if(turnOfPlayerOne)
-                return 0;
-            else
                 return 1;
+            else
+                return 0;
 
         if(checkDiagonally())
             if(turnOfPlayerOne)
-                return 0;
-            else
                 return 1;
+            else
+                return 0;
 
         return -1;
     }
