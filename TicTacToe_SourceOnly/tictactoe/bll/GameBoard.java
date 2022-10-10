@@ -45,7 +45,7 @@ public class GameBoard implements IGameModel
     {
         if(true){
             turnOfPlayerOne = !turnOfPlayerOne;
-            
+
             return true;
         }
 
@@ -112,12 +112,9 @@ public class GameBoard implements IGameModel
     public void newGame()
     {
 
-        clearButtonText();
-    }
-
-    private void clearButtonText() {
-
 
     }
+
+
 
 }
