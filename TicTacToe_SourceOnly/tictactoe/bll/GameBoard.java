@@ -18,7 +18,7 @@ public class GameBoard implements IGameModel
      */
     private Tile[][] tile;
     private boolean turnOfPlayerOne = true;
-
+    private int row = 3, col = 3; //to be changed
 
     public int getNextPlayer()
     {
@@ -82,8 +82,6 @@ public class GameBoard implements IGameModel
      */
     public void newGame()
     {
-        int row = 3, col = 3; //to be changed
-
         tile = new Tile[row][col];
         for (int i = 0; i < row; i++){
             for (int j = 0; j < col; j++) {
