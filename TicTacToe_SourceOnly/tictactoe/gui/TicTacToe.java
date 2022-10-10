@@ -31,7 +31,7 @@ public class TicTacToe extends Application
         
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.setTitle("Tic Tac Toe");
+        stage.setTitle("Pit Pat Poe");
         stage.centerOnScreen();
         
         
