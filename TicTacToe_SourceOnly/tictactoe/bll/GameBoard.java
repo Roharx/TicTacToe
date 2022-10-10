@@ -20,9 +20,6 @@ public class GameBoard implements IGameModel
      */
 
     private boolean turnOfPlayerOne = true;
-    private int row = 3, col = 3; //to be changed
-
-
 
     public int getNextPlayer()
     {
@@ -45,7 +42,7 @@ public class GameBoard implements IGameModel
     {
         if(true){
             turnOfPlayerOne = !turnOfPlayerOne;
-
+            //turn off the button and won't need to check any ifs
             return true;
         }
 
