@@ -5,6 +5,8 @@
  */
 package tictactoe.bll;
 
+import java.awt.Button;
+
 /**
  *
  * @author Stegger
@@ -16,14 +18,17 @@ public class GameBoard implements IGameModel
      *
      * @return int Id of the next player.
      */
-    private Tile[][] tile;
+
     private boolean turnOfPlayerOne = true;
     private int row = 3, col = 3; //to be changed
 
+
+
     public int getNextPlayer()
     {
-        //TODO Implement this method
-        return 0;
+        if(turnOfPlayerOne)
+            return 0;
+        return 1;
     }
 
     /**
@@ -38,27 +43,15 @@ public class GameBoard implements IGameModel
      */
     public boolean play(int col, int row)
     {
-        if(!tile[row][col].getIsUsed()){
-            tile[row][col].setUsed(true);
-            tile[row][col].setHasX(turnOfPlayerOne);
+        if(true){
+            turnOfPlayerOne = !turnOfPlayerOne;
+            
+            return true;
         }
 
-        setTextForButton();
-
-
-        return true;
+        return false;
     }
 
-    private void setTextForButton() {
-
-        if(turnOfPlayerOne){
-            //set X
-        }
-        else{
-            //set O
-        }
-
-    }
 
     public boolean isGameOver()
     {
@@ -118,12 +111,6 @@ public class GameBoard implements IGameModel
      */
     public void newGame()
     {
-        tile = new Tile[row][col];
-        for (int i = 0; i < row; i++){
-            for (int j = 0; j < col; j++) {
-                tile[i][j].setUsed(false);
-            }
-        }
 
         clearButtonText();
     }
