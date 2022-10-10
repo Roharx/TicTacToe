@@ -62,7 +62,12 @@ public class GameBoard implements IGameModel
 
     public boolean isGameOver()
     {
-        return getWinner() > -1;
+        return getWinner() >= 0 || noTilesLeft();
+    }
+
+    private boolean noTilesLeft() {
+
+        return false;
     }
 
     /**
@@ -72,9 +77,40 @@ public class GameBoard implements IGameModel
      */
     public int getWinner()
     {
-        //TODO Implement this method
+        if(checkHorizontally())
+            if(turnOfPlayerOne)
+                return 0;
+            else
+                return 1;
+
+        if(checkVertically())
+            if(turnOfPlayerOne)
+                return 0;
+            else
+                return 1;
+
+        if(checkDiagonally())
+            if(turnOfPlayerOne)
+                return 0;
+            else
+                return 1;
 
         return -1;
+    }
+
+    private boolean checkHorizontally() {
+
+        return false;
+    }
+
+    private boolean checkVertically() {
+
+        return false;
+    }
+
+    private boolean checkDiagonally() {
+
+        return  false;
     }
 
     /**
