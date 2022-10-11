@@ -5,6 +5,8 @@
  */
 package tictactoe.bll;
 
+import javafx.scene.control.Button;
+
 /**
  *
  * @author Stegger
@@ -31,15 +33,13 @@ public class GameBoard implements IGameModel
      * Attempts to let the current player play at the given coordinates. It the
      * attempt is succesfull the current player has ended his turn and it is the
      * next players turn.
-     *
-     * @param col column to place a marker in.
-     * @param row row to place a marker in.
+     * @param btn gets the button pressed
      * @return true if the move is accepted, otherwise false. If gameOver == true
      * this method will always return false.
      */
-    public boolean play(int col, int row)
+    public boolean play(Button btn)
     {
-        if(turnsLeft > 0){//and tile does not contain X or O
+        if(turnsLeft > 0 && btn.getText() == ""){
             turnOfPlayerZero = !turnOfPlayerZero;
             turnsLeft--;
             return true;
@@ -108,7 +108,7 @@ public class GameBoard implements IGameModel
     public void newGame()
     {
         turnOfPlayerZero = true;
-
+        turnsLeft = row * col;
     }
 
 
