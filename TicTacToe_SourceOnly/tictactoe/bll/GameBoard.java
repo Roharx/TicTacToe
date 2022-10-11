@@ -5,8 +5,6 @@
  */
 package tictactoe.bll;
 
-import java.awt.Button;
-
 /**
  *
  * @author Stegger
@@ -18,12 +16,13 @@ public class GameBoard implements IGameModel
      *
      * @return int Id of the next player.
      */
-
-    private boolean turnOfPlayerOne = true;
+    int row = 3, col = 3;
+    private int turnsLeft = row * col;
+    private boolean turnOfPlayerZero = true;
 
     public int getNextPlayer()
     {
-        if(turnOfPlayerOne)
+        if(turnOfPlayerZero)
             return 0;
         return 1;
     }
@@ -40,9 +39,9 @@ public class GameBoard implements IGameModel
      */
     public boolean play(int col, int row)
     {
-        if(true){
-            turnOfPlayerOne = !turnOfPlayerOne;
-            //turn off the button and won't need to check any ifs
+        if(turnsLeft > 0){//and tile does not contain X or O
+            turnOfPlayerZero = !turnOfPlayerZero;
+            turnsLeft--;
             return true;
         }
 
@@ -57,7 +56,7 @@ public class GameBoard implements IGameModel
 
     private boolean noTilesLeft() {
 
-        return false;
+        return turnsLeft == 0;
     }
 
     /**
@@ -68,19 +67,19 @@ public class GameBoard implements IGameModel
     public int getWinner()
     {
         if(checkHorizontally())
-            if(turnOfPlayerOne)
+            if(turnOfPlayerZero)
                 return 1;
             else
                 return 0;
 
         if(checkVertically())
-            if(turnOfPlayerOne)
+            if(turnOfPlayerZero)
                 return 1;
             else
                 return 0;
 
         if(checkDiagonally())
-            if(turnOfPlayerOne)
+            if(turnOfPlayerZero)
                 return 1;
             else
                 return 0;
@@ -108,7 +107,7 @@ public class GameBoard implements IGameModel
      */
     public void newGame()
     {
-
+        turnOfPlayerZero = true;
 
     }
 

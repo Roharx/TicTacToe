@@ -51,6 +51,10 @@ public class TicTacViewController implements Initializable
             {
                 if (game.isGameOver())
                 {
+                    Button btn = (Button) event.getSource();
+                    String xOrO = player == 0 ? "X" : "O";
+                    btn.setText(xOrO);
+
                     int winner = game.getWinner();
                     displayWinner(winner);
                 }
