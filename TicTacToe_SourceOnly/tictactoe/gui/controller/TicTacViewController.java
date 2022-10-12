@@ -48,7 +48,7 @@ public class TicTacViewController implements Initializable
             int c = (col == null) ? 0 : col;
             int player = game.getNextPlayer();
             Button btn = (Button) event.getSource();
-            if (game.play(btn))
+            if (game.play(r,c,btn))
             {
                 if (game.isGameOver())
                 {

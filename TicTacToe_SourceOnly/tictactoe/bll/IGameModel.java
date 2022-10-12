@@ -26,11 +26,14 @@ public interface IGameModel
      * attempt is succesfull the current player has ended his turn and it is the
      * next players turn.
      *
+     *
+     * @param r
+     * @param c
      * @param btn
      * @return true if the move is accepted, otherwise false. If gameOver ==
      * true this method will always return false.
      */
-    public boolean play(Button btn);
+    public boolean play(int r, int c, Button btn);
 
     /**
      * Tells us if the game has ended either by draw or by meeting the winning
