@@ -29,13 +29,11 @@ public class Player {
 
 
     public void receiveDamage(int damage){
-        if(armour < damage){
+        if(armour < damage)
             health -= damage - armour;
 
-            if(armour > 0)
-                armour--;
-        }
-
+        if(armour > 0)
+            armour--;
     }
 
     public void getCoins(int coinAmount){
@@ -65,7 +63,7 @@ public class Player {
     }
 
     public void decreaseArmour(int value){
-        armour -= value; //intentionally can go into negative value
+        armour -= value;
     }
 
     public void increaseAttackPower(int value){

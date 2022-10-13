@@ -90,7 +90,7 @@ public class TicTacViewController implements Initializable
 
                     int winner = game.getWinner();
                     doCombat(winner);
-                    
+
                     if(player0.getHealth() <= 0 && player0.getHealth() == player1.getHealth())
                     {
                         displayWinner(-1);
