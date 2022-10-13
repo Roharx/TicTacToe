@@ -8,6 +8,7 @@ public class Player {
     private int armour = 0;
     private int money = 0;
     private int mana = 0;
+    private int attackPower = 0;
 
     //region getters & setters
     public int getMaxHealth() {return maxHealth;}
@@ -27,10 +28,12 @@ public class Player {
 
 
 
-    public void damagePlayer(int damage){
+    public void receiveDamage(int damage){
         if(armour < damage){
             health -= damage - armour;
-            armour--;
+
+            if(armour > 0)
+                armour--;
         }
 
     }
@@ -63,5 +66,20 @@ public class Player {
 
     public void decreaseArmour(int value){
         armour -= value; //intentionally can go into negative value
+    }
+
+    public void increaseAttackPower(int value){
+        attackPower += value;
+    }
+
+    public void decreaseAttackPower(int value){
+        if(attackPower - value < 2)
+            attackPower = 1;
+        else
+            attackPower -= value;
+    }
+
+    public void dealDamageTo(Player enemy){
+        enemy.receiveDamage(damage + attackPower);
     }
 }

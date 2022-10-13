@@ -7,7 +7,9 @@ package tictactoe.gui.controller;
 
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,9 +19,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
-
+import tictactoe.bll.Player;
 
 /**
  *
@@ -27,6 +30,10 @@ import tictactoe.bll.IGameModel;
  */
 public class TicTacViewController implements Initializable
 {
+
+    public Label lblPlayerOneHealth;
+    public Label lblPlayerZeroHealth;
+
 
     @FXML
     private Label lblPlayer;
@@ -36,6 +43,9 @@ public class TicTacViewController implements Initializable
 
     @FXML
     private GridPane gridPane;
+
+    private Player player0 = new Player();
+    private Player player1 = new Player();
     
     private static final String TXT_PLAYER = "Player: ";
     private IGameModel game;
@@ -66,6 +76,10 @@ public class TicTacViewController implements Initializable
             int c = (col == null) ? 0 : col;
             int player = game.getNextPlayer();
             Button btn = (Button) event.getSource();
+
+            lblPlayerZeroHealth.setTextFill(Paint.valueOf("#ffffff"));
+            lblPlayerOneHealth.setTextFill(Paint.valueOf("#ffffff"));
+
             if (game.play(r,c,btn))
             {
                 if (game.isGameOver())
@@ -75,7 +89,20 @@ public class TicTacViewController implements Initializable
                     setPictureToButton(btn, xOrO);
 
                     int winner = game.getWinner();
-                    displayWinner(winner);
+                    doCombat(winner);
+
+                    if(player0.getHealth() <= 0){
+                        displayWinner(0);
+                    }
+                    else if(player1.getHealth() <= 0){
+                        displayWinner(1);
+                    }
+                    else
+                    {
+                        clearBoard();
+                        game.newGame();
+                    }
+
                 }
                 else
                 {
@@ -90,6 +117,32 @@ public class TicTacViewController implements Initializable
             System.out.println(e.getMessage());
         }
     }
+
+
+    private void doCombat(int winner) {
+
+        clearBoard();
+        lockBoard();
+
+        if (winner == 0){
+            player0.dealDamageTo(player1);
+            lblPlayerOneHealth.setTextFill(Paint.valueOf("#ff0000"));
+        }
+        else if (winner == 1){
+            player1.dealDamageTo(player0);
+            lblPlayerZeroHealth.setTextFill(Paint.valueOf("#ff0000"));
+        }
+        else
+        {
+            player0.receiveDamage(1);
+            lblPlayerZeroHealth.setTextFill(Paint.valueOf("#ff0000"));
+            player1.receiveDamage(1);
+            lblPlayerOneHealth.setTextFill(Paint.valueOf("#ff0000"));
+        }
+        lblPlayerZeroHealth.setText("P0 Health: " + player0.getHealth());
+        lblPlayerOneHealth.setText("P1 Health: " + player1.getHealth());
+    }
+
 
     private void disableButtons(GridPane gridPane) {
         for(Node n : gridPane.getChildren())
@@ -115,6 +168,14 @@ public class TicTacViewController implements Initializable
         game.newGame();
         setPlayer();
         clearBoard();
+
+        player0 = new Player();
+        lblPlayerZeroHealth.setText("P0 Health: " + player0.getHealth());
+        player1 = new Player();
+        lblPlayerOneHealth.setText("P1 Health: " + player1.getHealth());
+
+        lblPlayerZeroHealth.setTextFill(Paint.valueOf("#ffffff"));
+        lblPlayerOneHealth.setTextFill(Paint.valueOf("#ffffff"));
     }
 
     @Override
@@ -136,12 +197,16 @@ public class TicTacViewController implements Initializable
         switch (winner)
         {
             case -1:
-                message = "It's a draw :-(";
+                message = "It's a draw";
                 break;
             default:
                 message = "Player " + winner + " wins!!!";
                 break;
         }
+        lblPlayerOneHealth.setText(null);
+        lblPlayerZeroHealth.setText(null);
+        clearBoard();
+        lockBoard();
         lblPlayer.setText(message);
     }
 
@@ -153,7 +218,15 @@ public class TicTacViewController implements Initializable
             btn.setGraphic(null);
             btn.setDisable(false);
         }
+
     }
 
+    private void lockBoard(){
+        for(Node n : gridPane.getChildren())
+        {
+            Button btn = (Button) n;
+            btn.setDisable(true);
+        }
+    }
 
 }

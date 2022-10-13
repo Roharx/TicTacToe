@@ -23,28 +23,21 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn2" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.columnIndex="1" />
-            <Button fx:id="btn3" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.columnIndex="2" />
-            <Button fx:id="btn4" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.rowIndex="1" />
-            <Button fx:id="btn5" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="btn6" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="btn7" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.rowIndex="2" />
-            <Button fx:id="btn8" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="btn9" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="btn1" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" prefHeight="31.0" prefWidth="424.0" style="-fx-background-color: #654435;" />
+            <Button fx:id="btn2" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.columnIndex="1" />
+            <Button fx:id="btn3" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.columnIndex="2" />
+            <Button fx:id="btn4" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.rowIndex="1" />
+            <Button fx:id="btn5" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="btn6" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="btn7" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.rowIndex="2" />
+            <Button fx:id="btn8" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btn9" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" style="-fx-background-color: #654435; -fx-border-color: #291c15;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="btn1" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" onMouseEntered="#mouseEnterAction" onMouseExited="#mouseLeaveAction" prefHeight="31.0" prefWidth="424.0" style="-fx-background-color: #654435; -fx-border-color: #291c15;" />
          </children>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
       </GridPane>
    </center>
-   <top>
-      <Label fx:id="lblPlayer" text="1" textFill="WHITE" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-   </top>
    <bottom>
       <Button fx:id="btnNewGame" focusTraversable="false" mnemonicParsing="false" onAction="#handleNewGame" style="-fx-background-color: #1e140f;" text="New Game" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
@@ -58,4 +51,33 @@
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
+   <top>
+      <GridPane prefHeight="38.0" prefWidth="390.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lblPlayerZeroHealth" focusTraversable="false" text="P0 Health: 5" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPlayer" focusTraversable="false" text="Turn: 1" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPlayerOneHealth" focusTraversable="false" text="P1 Health: 5" textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </top>
 </BorderPane>
