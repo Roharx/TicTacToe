@@ -47,7 +47,7 @@ public class TicTacViewController implements Initializable
     private Player player0 = new Player();
     private Player player1 = new Player();
     
-    private static final String TXT_PLAYER = "Player: ";
+    private static final String TXT_PLAYER = "Turn: ";
     private IGameModel game;
 
     @FXML
@@ -90,8 +90,12 @@ public class TicTacViewController implements Initializable
 
                     int winner = game.getWinner();
                     doCombat(winner);
-
-                    if(player0.getHealth() <= 0){
+                    
+                    if(player0.getHealth() <= 0 && player0.getHealth() == player1.getHealth())
+                    {
+                        displayWinner(-1);
+                    }
+                    else if(player0.getHealth() <= 0){
                         displayWinner(0);
                     }
                     else if(player1.getHealth() <= 0){
@@ -187,7 +191,7 @@ public class TicTacViewController implements Initializable
 
     private void setPlayer()
     {
-        lblPlayer.setText(TXT_PLAYER + game.getNextPlayer());
+        lblPlayer.setText(TXT_PLAYER + "Player " + game.getNextPlayer());
 
     }
 
