@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 #pane {
-    -fx-background-image: url(../images/background.jpg);
+    -fx-background-image: url(../images/Log.png);
     -fx-background-repeat: stretch;   
     -fx-background-position: center;
 }

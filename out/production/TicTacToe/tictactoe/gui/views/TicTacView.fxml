@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx-background-image: none; -fx-background-color: black;" stylesheets="@../css/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.gui.controller.TicTacViewController">
+<BorderPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx-background-image: -fx-background-image: url(&quot;tictactoe/gui/images/background.jpg&quot;);" stylesheets="@../css/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.gui.controller.TicTacViewController">
    <center>
       <GridPane fx:id="gridPane" hgap="4.0" vgap="4.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -46,7 +46,7 @@
       </Label>
    </top>
    <bottom>
-      <Button fx:id="btnNewGame" focusTraversable="false" mnemonicParsing="false" onAction="#handleNewGame" style="-fx-background-color: darkgrey;" text="New Game" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
+      <Button fx:id="btnNewGame" focusTraversable="false" mnemonicParsing="false" onAction="#handleNewGame" style="-fx-background-color: #1e140f;" text="New Game" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
             <Insets top="10.0" />
          </BorderPane.margin>
