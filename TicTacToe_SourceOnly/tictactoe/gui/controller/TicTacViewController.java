@@ -5,8 +5,7 @@
  */
 package tictactoe.gui.controller;
 
-import java.awt.Color;
-import java.awt.Image;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
