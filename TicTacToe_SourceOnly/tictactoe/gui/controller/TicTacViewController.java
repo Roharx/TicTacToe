@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
@@ -54,7 +55,7 @@ public class TicTacViewController implements Initializable
                 {
 
                     String xOrO = player == 0 ? "X" : "O";
-                    btn.setText(xOrO);
+                    setPictureToButton(btn, xOrO);
 
                     int winner = game.getWinner();
                     displayWinner(winner);
@@ -62,7 +63,8 @@ public class TicTacViewController implements Initializable
                 else
                 {
                     String xOrO = player == 0 ? "X" : "O";
-                    btn.setText(xOrO);
+                    setPictureToButton(btn, xOrO);
+
                     setPlayer();
                 }
             }
@@ -70,6 +72,16 @@ public class TicTacViewController implements Initializable
         {
             System.out.println(e.getMessage());
         }
+    }
+
+    private void setPictureToButton(Button btn, String xOrO) {
+        if(xOrO == "X"){
+            btn.setGraphic(new ImageView("tictactoe/gui/images/sword.png"));
+        }
+        else
+            btn.setGraphic(new ImageView("tictactoe/gui/images/shield.png"));
+
+
     }
 
     @FXML
@@ -113,7 +125,7 @@ public class TicTacViewController implements Initializable
         for(Node n : gridPane.getChildren())
         {
             Button btn = (Button) n;
-            btn.setText("");
+            btn.setGraphic(null);
         }
     }
 

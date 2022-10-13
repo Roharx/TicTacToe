@@ -44,7 +44,7 @@ public class GameBoard implements IGameModel
      */
     public boolean play(int r, int c, Button btn)
     {
-        if(!isGameOver() && turnsLeft > 0 && btn.getText() == ""){
+        if(!isGameOver() && turnsLeft > 0 && btn.getGraphic() == null){
             turnOfPlayerZero = !turnOfPlayerZero;
             turnsLeft--;
             if(turnOfPlayerZero)
