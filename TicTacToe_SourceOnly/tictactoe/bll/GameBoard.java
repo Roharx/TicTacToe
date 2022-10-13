@@ -51,6 +51,7 @@ public class GameBoard implements IGameModel
                 tiles[r][c] = 1;
             else
                 tiles[r][c] = 2;
+            btn.setMouseTransparent(true);
             return true;
         }
 

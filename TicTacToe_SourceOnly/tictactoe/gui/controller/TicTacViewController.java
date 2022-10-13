@@ -53,7 +53,7 @@ public class TicTacViewController implements Initializable
             {
                 if (game.isGameOver())
                 {
-
+                    disableButtons(gridPane);
                     String xOrO = player == 0 ? "X" : "O";
                     setPictureToButton(btn, xOrO);
 
@@ -71,6 +71,14 @@ public class TicTacViewController implements Initializable
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
+        }
+    }
+
+    private void disableButtons(GridPane gridPane) {
+        for(Node n : gridPane.getChildren())
+        {
+            Button btn = (Button) n;
+            btn.setMouseTransparent(true);
         }
     }
 
@@ -126,6 +134,7 @@ public class TicTacViewController implements Initializable
         {
             Button btn = (Button) n;
             btn.setGraphic(null);
+            btn.setMouseTransparent(false);
         }
     }
 
