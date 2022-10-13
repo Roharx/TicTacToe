@@ -5,6 +5,8 @@
  */
 package tictactoe.gui.controller;
 
+import java.awt.Color;
+import java.awt.Image;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
@@ -37,6 +40,21 @@ public class TicTacViewController implements Initializable
     
     private static final String TXT_PLAYER = "Player: ";
     private IGameModel game;
+
+    @FXML
+    private void mouseEnterAction(MouseEvent event){
+        Button btn = (Button) event.getSource();
+        if(btn.getGraphic() == null)
+            btn.setGraphic(new ImageView("tictactoe/gui/images/Flag.png"));
+
+    }
+
+    @FXML
+    public void mouseLeaveAction(MouseEvent event) {
+        Button btn = (Button) event.getSource();
+        if(!btn.isDisabled())
+            btn.setGraphic(null);
+    }
 
     @FXML
     private void handleButtonAction(ActionEvent event)
@@ -78,7 +96,7 @@ public class TicTacViewController implements Initializable
         for(Node n : gridPane.getChildren())
         {
             Button btn = (Button) n;
-            btn.setMouseTransparent(true);
+            btn.setDisable(true);
         }
     }
 
@@ -134,8 +152,9 @@ public class TicTacViewController implements Initializable
         {
             Button btn = (Button) n;
             btn.setGraphic(null);
-            btn.setMouseTransparent(false);
+            btn.setDisable(false);
         }
     }
+
 
 }

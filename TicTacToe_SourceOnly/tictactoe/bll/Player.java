@@ -26,9 +26,13 @@ public class Player {
     //endregion
 
 
+
     public void damagePlayer(int damage){
-        if(armour < damage)
+        if(armour < damage){
             health -= damage - armour;
+            armour--;
+        }
+
     }
 
     public void getCoins(int coinAmount){

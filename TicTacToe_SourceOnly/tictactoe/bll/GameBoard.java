@@ -6,6 +6,7 @@
 package tictactoe.bll;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -42,16 +43,17 @@ public class GameBoard implements IGameModel
      * @return true if the move is accepted, otherwise false. If gameOver == true
      * this method will always return false.
      */
+
     public boolean play(int r, int c, Button btn)
     {
-        if(!isGameOver() && turnsLeft > 0 && btn.getGraphic() == null){
+        if(!isGameOver() && turnsLeft > 0){
             turnOfPlayerZero = !turnOfPlayerZero;
             turnsLeft--;
             if(turnOfPlayerZero)
                 tiles[r][c] = 1;
             else
                 tiles[r][c] = 2;
-            btn.setMouseTransparent(true);
+            btn.setDisable(true);
             return true;
         }
 
