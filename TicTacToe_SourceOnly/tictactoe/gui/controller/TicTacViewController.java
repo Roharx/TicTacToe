@@ -7,7 +7,6 @@ package tictactoe.gui.controller;
 
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -34,6 +33,11 @@ public class TicTacViewController implements Initializable
     public Label lblPlayerOneHealth;
     public Label lblPlayerZeroHealth;
 
+    public Button btn4;
+    public Button btn5;
+    public Button btn6;
+
+    private boolean choosingPoweUp = false;
 
     @FXML
     private Label lblPlayer;
@@ -53,16 +57,23 @@ public class TicTacViewController implements Initializable
     @FXML
     private void mouseEnterAction(MouseEvent event){
         Button btn = (Button) event.getSource();
-        if(btn.getGraphic() == null)
+
+        if(!btn.isDisabled() && btn.getGraphic() == null){
+            btn.setStyle("-fx-background-color: #4d3429; ");
             btn.setGraphic(new ImageView("tictactoe/gui/images/Flag.png"));
+        }
+
 
     }
 
     @FXML
     public void mouseLeaveAction(MouseEvent event) {
         Button btn = (Button) event.getSource();
-        if(!btn.isDisabled())
+        if(!btn.isDisabled()){
+            btn.setStyle("-fx-background-color:  #654435; ");
             btn.setGraphic(null);
+        }
+
     }
 
     @FXML
@@ -80,6 +91,7 @@ public class TicTacViewController implements Initializable
             lblPlayerZeroHealth.setTextFill(Paint.valueOf("#ffffff"));
             lblPlayerOneHealth.setTextFill(Paint.valueOf("#ffffff"));
 
+
             if (game.play(r,c,btn))
             {
                 if (game.isGameOver())
@@ -90,6 +102,9 @@ public class TicTacViewController implements Initializable
 
                     int winner = game.getWinner();
                     doCombat(winner);
+                    choosingPoweUp = true;
+                    clearBoard();
+                    lockBoard();
 
                     if(player0.getHealth() <= 0 && player0.getHealth() == player1.getHealth())
                     {
@@ -122,6 +137,36 @@ public class TicTacViewController implements Initializable
         }
     }
 
+    //region Powerups [to be implemented]
+    private void spawnPowerUps() { //wanted to make it random but started converting it to an RPG too late :D
+        btn4.setDisable(false);
+        btn5.setDisable(false);
+        btn6.setDisable(false);
+
+        btn4.setGraphic(new ImageView("tictactoe/gui/images/heart.png"));
+        btn5.setGraphic(new ImageView("tictactoe/gui/images/armour.png"));
+        btn6.setGraphic(new ImageView("tictactoe/gui/images/attackup.png"));
+
+    }
+
+    private void choosePowerUp(int winnerID, Button btn){
+        Player winner;
+        if(winnerID == 0)
+            winner = player0;
+        else
+            winner = player1;
+
+        if(new ImageView("tictactoe/gui/images/attackup.png").equals(btn.getGraphic()))
+            winner.increaseAttackPower(1);
+        else if (new ImageView("tictactoe/gui/images/heart.png").equals(btn.getGraphic()))
+            winner.heal(1);
+        else if (new ImageView("tictactoe/gui/images/heart.png").equals(btn.getGraphic()))
+            winner.increaseArmour(2);
+
+        clearBoard();
+        choosingPoweUp = false;
+    }
+    //endregion
 
     private void doCombat(int winner) {
 
@@ -220,6 +265,7 @@ public class TicTacViewController implements Initializable
         {
             Button btn = (Button) n;
             btn.setGraphic(null);
+            btn.setStyle("-fx-background-color:  #654435; ");
             btn.setDisable(false);
         }
 
